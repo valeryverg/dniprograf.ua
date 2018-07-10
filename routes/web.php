@@ -20,7 +20,3 @@ Route::get('admin', 'IndexController@admin')->name('admin');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

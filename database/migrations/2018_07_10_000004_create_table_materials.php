@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableOperations extends Migration
+class CreateTableMaterials extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,15 @@ class CreateTableOperations extends Migration
      */
     public function up()
     {
-        Schema::create('operations', function (Blueprint $table) {
+        Schema::create('materials', function (Blueprint $table) {
             $table->increments('id');
-            $table->date('date_oper');
-            $table->integer('amount');
-            $table->integer('material_id');
-            $table->integer('type_id');
-            $table->integer('user_id');
+            $table->string('name');
+            $table->string('type');
+            $table->string('size');
+            $table->string('density');
+            $table->string('color');
+            $table->integer('user_id')->unsigned()->default(1);
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -32,6 +34,6 @@ class CreateTableOperations extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('operations');
+        Schema::dropIfExists('materials');
     }
 }

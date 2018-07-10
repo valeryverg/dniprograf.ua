@@ -51,6 +51,8 @@
                                             alt="Flash Templates 3" title="Flash Templates 3"/></a>
             <a href="#" rel="lightbox"><img class="cloudcarousel" src="{{ asset('images/slider/08.jpg') }}"
                                             alt="Flash Templates 4" title="Flash Templates 4"/></a>
+            <a href="#" rel="lightbox"><img class="cloudcarousel" src="{{ asset('images/slider/09.jpg') }}"
+                                            alt="Flash Templates 4" title="Flash Templates 4"/></a>
         </div>
 
         <!-- Define left and right buttons. -->

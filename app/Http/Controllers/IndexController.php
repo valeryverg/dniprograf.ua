@@ -2,14 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\MenuItem;
+use App\Menu;
 
 class IndexController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function show()
     {
-        $menu = MenuItem::all()->sortBy('sort_by');
+        $menu = Menu::all()->sortBy('sort_by');
         return view('index', ['menu' => $menu]);
     }
 

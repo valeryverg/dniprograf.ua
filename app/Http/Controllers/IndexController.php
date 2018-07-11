@@ -33,7 +33,7 @@ class IndexController extends Controller
         });*/
 
         //dump($menuBuilder);
-
+       // https://laracasts.com/discuss/channels/laravel/how-to-make-menu-and-submenu-dynamic
         return view('index', compact('menu'));
     }
 

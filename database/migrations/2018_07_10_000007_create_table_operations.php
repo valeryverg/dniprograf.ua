@@ -17,11 +17,11 @@ class CreateTableOperations extends Migration
             $table->increments('id');
             $table->date('date_oper');
             $table->integer('amount');
-            $table->integer('material_id')->unsigned()->default(1);
+            $table->unsignedInteger('material_id');
             $table->foreign('material_id')->references('id')->on('materials');
-            $table->integer('type_id')->unsigned()->default(1);
+            $table->unsignedInteger('type_id');
             $table->foreign('type_id')->references('id')->on('type_operations');
-            $table->integer('user_id')->unsigned()->default(1);
+            $table->unsignedInteger('user_id')->default(1);
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
             $table->softDeletes();

@@ -17,7 +17,7 @@ class CreateTableTypeOperations extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('describe');
-            $table->integer('user_id')->unsigned()->default(1);
+            $table->unsignedInteger('user_id')->default(1);
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
             $table->softDeletes();

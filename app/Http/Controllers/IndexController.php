@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Menu;
+use App\Menu as BDMenu;
+use Lavary\Menu\Menu;
 
 class IndexController extends Controller
 {
@@ -14,8 +15,26 @@ class IndexController extends Controller
 
     public function show()
     {
-        $menu = Menu::all()->sortBy('sort_by');
-        return view('index', ['menu' => $menu]);
+        $menu = BDMenu::all()->sortBy('id');
+
+        $menuBuilder = new Menu();
+        $menuBuilder->make('NavBar', function ($m) use ($menu)
+        {
+            foreach ($menu as $item) {
+                if ($item->parent_id == 0) {
+                    $m->add($item->name, $item->link, $item->id_role)->id($item->id);
+                }
+                else {
+                    if ($m->find($item->parent_id)) {
+                        $m->find($item->parent_id)->add($item->name, $item->link, $item->id_role)->id($item->id);
+                    }
+                }
+            }
+        });
+
+        //dump($menuBuilder);
+
+        return view('index')->with('menu', $menu);
     }
 
     public function admin()

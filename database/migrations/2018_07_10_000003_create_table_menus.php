@@ -14,11 +14,10 @@ class CreateTableMenus extends Migration
     public function up()
     {
         Schema::create('menus', function (Blueprint $table) {
-            $table->increments('id');
+            $table->integer('id')->unsigned();
+            $table->integer('parent_id')->unsigned();
             $table->string('name');
             $table->string('link');
-            $table->integer('sort_by');
-            $table->integer('parent_id');
             $table->integer('role_id')->unsigned()->default(1);
             $table->foreign('role_id')->references('id')->on('roles');
             $table->timestamps();

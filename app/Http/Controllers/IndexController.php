@@ -17,7 +17,7 @@ class IndexController extends Controller
     {
         $menu = BDMenu::all()->sortBy('id');
 
-        $menuBuilder = new Menu();
+       /* $menuBuilder = new Menu();
         $menuBuilder->make('NavBar', function ($m) use ($menu)
         {
             foreach ($menu as $item) {
@@ -30,11 +30,11 @@ class IndexController extends Controller
                     }
                 }
             }
-        });
+        });*/
 
         //dump($menuBuilder);
 
-        return view('index')->with('menu', $menu);
+        return view('index', compact('menu'));
     }
 
     public function admin()

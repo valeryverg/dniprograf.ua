@@ -14,9 +14,11 @@
                 @if (isset($menu))
                     <ul class="nav navbar-nav">
                         @foreach($menu as $item)
+                            @if($item->parent_id == 0)
                             <li>
-                                <a href="/{{ $item['link'] }}">{{ $item['name'] }}</a>
+                                <a href="/{{ $item->link }}">{{ $item->name }}</a>
                             </li>
+                            @endif
                         @endforeach
                     </ul>
                 @endif

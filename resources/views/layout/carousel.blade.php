@@ -1,4 +1,5 @@
 @section('slider')
+    <script type="text/javascript" src="{{ asset('js/ddsmoothmenu.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/jquery-1-4-2.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/jquery-ui.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/showhide.js') }}"></script>

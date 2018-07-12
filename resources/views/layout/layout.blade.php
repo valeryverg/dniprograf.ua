@@ -17,7 +17,7 @@
 @endsection
 
 @section('slider')
-    @include('layout.carousel')
+    @include('layout.sliderCSS')
 @endsection
 
 @section('social')

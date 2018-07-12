@@ -15,7 +15,7 @@ class IndexController extends Controller
 
     public function show()
     {
-        $menu = Menu::all()->load('submenu');//->sortBy('id');
+        $menu = Menu::all()->load('submenu')->sortBy('id');
 
         //$menu = Menu::all()->sortBy('id');
 

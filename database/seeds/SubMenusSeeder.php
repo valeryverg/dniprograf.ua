@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Menu;
+use App\SubMenu;
 
 class SubMenusSeeder extends Seeder
 {
@@ -12,39 +12,39 @@ class SubMenusSeeder extends Seeder
      */
     public function run()
     {
-        Menu::create(
+        SubMenu::create(
             [
                 'id' => 81,
                 'menu_id' => 8,
                 'name' => 'Матеріали',
-                'link' => 'material',
+                'sublink' => 'material',
             ]
         );
 
-        Menu::create(
+        SubMenu::create(
             [
                 'id' => 82,
                 'menu_id' => 8,
                 'name' => 'Тип операції',
-                'link' => 'typeoper',
+                'sublink' => 'typeoper',
             ]
         );
 
-        Menu::create(
+        SubMenu::create(
             [
                 'id' => 91,
                 'menu_id' => 9,
                 'name' => 'Користувачі',
-                'link' => 'users',
+                'sublink' => 'users',
             ]
         );
 
-        Menu::create(
+        SubMenu::create(
             [
                 'id' => 92,
                 'menu_id' => 9,
                 'name' => 'Ролі',
-                'link' => 'roles',
+                'sublink' => 'roles',
             ]
         );
     }

@@ -1,9 +1,8 @@
 @section('css')
     <!-- CSSs -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    <link href="{{ asset ('vendor/twbs/bootstrap/assets/css/docs.min.css') }}" rel="stylesheet" type="text/css"/>
-    <link href="{{ asset ('css/templatemo_style.css') }}" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" type="text/css" media="all" href="{{ asset ('css/reset.css') }}"/> <!-- RESET STYLESHEET -->
+{{--    <link href="{{ asset ('css/templatemo_style.css') }}" rel="stylesheet" type="text/css"/>--}}
+    {{--<link rel="stylesheet" type="text/css" media="all" href="{{ asset ('css/reset.css') }}"/> <!-- RESET STYLESHEET -->--}}
     <link rel="stylesheet" id="custom-css" href="{{ asset ('css/custom.css" type="text/css') }}" media="all"/>
 
     <!-- FONTs -->

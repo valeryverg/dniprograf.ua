@@ -13,7 +13,7 @@ class CreateTableSubMenus extends Migration
      */
     public function up()
     {
-        Schema::create('submenus', function (Blueprint $table) {
+        Schema::create('sub_menus', function (Blueprint $table) {
             $table->unsignedInteger('id');
             $table->unsignedInteger('menu_id');
             $table->foreign('menu_id')->references('id')->on('menus');
@@ -31,6 +31,6 @@ class CreateTableSubMenus extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('submenus');
+        Schema::dropIfExists('sub_menus');
     }
 }

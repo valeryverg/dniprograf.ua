@@ -17,7 +17,7 @@
 @endsection
 
 @section('slider')
-    @include('layout.sliderCSS')
+{{--    @include('layout.sliderCSS')--}}
 @endsection
 
 @section('social')

@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Menu as Menu;
-//use Lavary\Menu\Menu;
+use App\Menu;
+use App\Role;
+use App\User;
+use Illuminate\Support\Facades\Auth;
+
 
 class IndexController extends Controller
 {
@@ -15,27 +18,22 @@ class IndexController extends Controller
 
     public function show()
     {
-        $menu = Menu::all()->load('submenu')->sortBy('id');
+        // роли аутентифицированного пользователя
+        $roles = User::find(Auth::id())->roles()->orderBy('name')->get();
 
-        //$menu = Menu::all()->sortBy('id');
+        //инициализация коллекции
+        $role_id = collect([]);
 
-       /* $menuBuilder = new Menu();
-        $menuBuilder->make('NavBar', function ($m) use ($menu)
+        // push ID ролей в пользователя в коллекцию
+        foreach ($roles as $role)
         {
-            foreach ($menu as $item) {
-                if ($item->parent_id == 0) {
-                    $m->add($item->name, $item->link, $item->id_role)->id($item->id);
-                }
-                else {
-                    if ($m->find($item->parent_id)) {
-                        $m->find($item->parent_id)->add($item->name, $item->link, $item->id_role)->id($item->id);
-                    }
-                }
-            }
-        });*/
+            $role_id->push($role->id);
+        }
 
-        //dump($menuBuilder);
-       // https://laracasts.com/discuss/channels/laravel/how-to-make-menu-and-submenu-dynamic
+        // формирования меню с учетом ролей
+        $menu = Menu::all()->load('submenu')->whereIn('role_id', $role_id)->sortBy('id');
+
+        // формирование главной страницы
         return view('index', compact('menu'));
     }
 

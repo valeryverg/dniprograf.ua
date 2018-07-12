@@ -29,7 +29,7 @@
                             </ul>
                         </li>
                     @else
-                        <li><a href="{{ $item->link }}">{{ $item->name }}</a></li>
+                        <li  {{ (url()->current() == $item->link) ? "class=active" : '' }}><a href="{{ $item->link }}">{{ $item->name }}</a></li>
                     @endif
                 @endforeach
             </ul>

@@ -24,7 +24,7 @@ class IndexController extends Controller
         //инициализация коллекции
         $role_id = collect([]);
 
-        // push ID ролей в пользователя в коллекцию
+        // push ID ролей пользователя в коллекцию
         foreach ($roles as $role)
         {
             $role_id->push($role->id);
@@ -40,6 +40,6 @@ class IndexController extends Controller
     public function admin()
     {
         echo 'Test';
-        //return view('store.menu');
+
     }
 }

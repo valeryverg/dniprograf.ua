@@ -3,20 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\Menu;
+use App\Repositories\MenuRepository;
 use App\Role;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 
 
-class IndexController extends Controller
+class IndexController extends MainController
 {
+    //private $menu;
 
     public function __construct()
     {
-        $this->middleware('auth');
+        parent::__construct();//(new MenuRepository(new Menu));
+
+        $this->template = 'index';
     }
 
-    public function show()
+    public function getMenu1()
     {
         // роли аутентифицированного пользователя
         $roles = User::find(Auth::id())->roles()->orderBy('name')->get();
@@ -31,15 +35,20 @@ class IndexController extends Controller
         }
 
         // формирования меню с учетом ролей
-        $menu = Menu::all()->load('submenu')->whereIn('role_id', $role_id)->sortBy('id');
-
-        // формирование главной страницы
-        return view('index', compact('menu'));
+        //$this->menu = Menu::all()->load('submenu')->whereIn('role_id', $role_id)->sortBy('id');
     }
 
-    public function admin()
+    public function index1()
     {
-        echo 'Test';
+        /*$this->menu = $this->getMenu();
+
+        // формирование главной страницы
+        return view('index')->with('menu', $this->menu);*/
+    }
+
+    public function index()
+    {
+        return $this->renderOutput();
 
     }
 }

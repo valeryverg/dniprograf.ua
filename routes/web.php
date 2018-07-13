@@ -11,12 +11,10 @@
 |
 */
 
-Route::get('/', 'IndexController@show')->name('index');
-
-Route::get('admin', 'IndexController@admin')->name('admin');
-
-//Route::auth();
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/', 'IndexController@index');//->name('index');
+//Route::resource('/', 'IndexController', ['only'=>['index']]);
+

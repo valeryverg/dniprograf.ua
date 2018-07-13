@@ -12,9 +12,9 @@
     @include('layout.js')
 @endsection
 
-@section('navbar')
+{{--@section('navbar')
     @include('layout.menu')
-@endsection
+@endsection--}}
 
 @section('slider')
     @include('layout.sliderCSS')

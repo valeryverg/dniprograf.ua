@@ -1,6 +1,6 @@
 @section('css')
     <!-- CSSs -->
-    <link rel="stylesheet" href="{{ asset ('css/custom.css" type="text/css') }}" type="text/css"/>
+    <link rel="stylesheet" href="{{ asset ('css/style.css" type="text/css') }}" type="text/css"/>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 {{--    <link href="{{ asset ('css/templatemo_style.css') }}" rel="stylesheet" type="text/css"/>--}}
     {{--<link rel="stylesheet" type="text/css" media="all" href="{{ asset ('css/reset.css') }}"/> <!-- RESET STYLESHEET -->--}}
